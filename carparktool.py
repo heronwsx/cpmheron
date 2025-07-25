@@ -10,11 +10,7 @@ from time import sleep
 BASE_URL: str = "https://dodgerblue-walrus-972474.hostingersite.com/api" 
 
 class CarParkTool:
-
-    def __init__(self, access_key) -> None:
-        self.auth_token = None
-        self.access_key = access_key
-    
+  
     def login(self, email, password) -> int:
         payload = { "account_email": email, "account_password": password }
         params = { "key": self.access_key }
@@ -50,11 +46,6 @@ class CarParkTool:
         response_decoded = response.json()
         return response_decoded.get("ok")
     
-    def get_key_data(self) -> any:
-        params = { "key": self.access_key }
-        response = requests.get(f"{BASE_URL}/get_key_data", params=params)
-        response_decoded = response.json()
-        return response_decoded
     
     def set_player_money(self, amount) -> bool:
         payload = {
