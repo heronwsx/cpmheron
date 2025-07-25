@@ -13,7 +13,7 @@ class CarParkTool:
   
     def login(self, email, password) -> int:
         payload = { "account_email": email, "account_password": password }
-        params = { "key": self.access_key }
+        params = {}
         response = requests.post(f"{BASE_URL}/account_login", params=params, data=payload)
         response_decoded = response.json()
         if response_decoded.get("ok"):
